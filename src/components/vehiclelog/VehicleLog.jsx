@@ -470,7 +470,7 @@ const VehicleLog = () => {
                               flex: "1 0 24%", // Set flex basis to 25% to display 4 cards in a row
                               minWidth: "280px", // Set a minimum width to prevent shrinking
                               maxWidth: "25%", // Set a maximum width to limit card width
-                              margin: "10px 10px 50px 10px",
+                              margin: "10px 5px 50px 5px",
                               boxShadow:
                                 "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.16)",
                             }}

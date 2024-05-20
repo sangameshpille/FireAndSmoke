@@ -35,7 +35,8 @@ const Login = () => {
                         toast.error("Login failed. Please try again.", {
                             autoClose: 1000,
                         });
-                    }                } else {
+                    }
+                } else {
                     toast.error("Login failed. Please try again.", {
                         autoClose: 1000,
                     });
