@@ -1,0 +1,267 @@
+.CardContainer {
+  /* width: 100vw; */
+  margin: 0 auto;
+  height: 100%;
+  min-height: 100vh;
+}
+.cardContainerBody {
+  /* width:98%; */
+  /* margin: 0 auto; */
+  /* padding: 10px; */
+
+  flex-basis: 30%;
+  display: flex;
+}
+.cardContainerBody > div {
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+.cardSection {
+  width: auto;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 25px 0px;
+  background-color: #fff;
+  border-radius: 5px;
+  /* padding-bottom: 50px; */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+
+.cardSection > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  /* justify-content: center; */
+  width: 100%;
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 600px) {
+  .cardSection > div {
+    margin: 0 auto;
+    width: min-content;
+  }
+
+  .employeeDetails{
+    flex-basis: 100% !important;
+  }
+}
+.tableDataContainer {
+  height: 15vh;
+  overflow-y: auto;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 12px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+
+/* header of entitties and table header */
+.appBar {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  margin-top: -1.2rem;
+  padding: 10px 0px 0px 0px;
+  border-radius: 0.125rem;
+}
+
+.childAppBar {
+  width: 90vw;
+  margin: 0px auto;
+  background-color: rgb(241, 53, 53);
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 200; /* Set a higher z-index for the childAppBar */
+  top: 52px;
+}
+
+.dropdownvalue {
+  /* flex-basis: 15%; */
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.dropdownvalue > label {
+  color: #fff;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  padding: 2px 5px;
+}
+.dropdownvalue > select {
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  outline: none;
+  appearance: none;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.employeeDetails {
+  flex-basis: 35%;
+  text-align: left;
+  color: #fff;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  font-weight: 0 !important;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-family: "Nunito", sans-serif;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.employeeDetails > h3 {
+  font-weight: 300 !important;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-family: "Nunito", sans-serif;
+  text-transform: capitalize;
+}
+
+/* pagination section */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  padding: 0px 0px 20px 0px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  border: none;
+  padding: 5px 8px;
+  margin: 0 4px;
+  font-size: 0.9rem;
+  background-color: transparent;
+  transition: all 0.3s linear;
+  outline: 0;
+}
+
+.pagination button:hover {
+  background-color: #e0e0e0a1;
+}
+
+.pagination button.active {
+  background-color: rgb(255, 82, 82);
+  color: #fff;
+  box-shadow: 0 2px 2px #ccc;
+}
+.pagination button:not(:disabled) {
+  cursor: pointer;
+}
+.pagination button.disabled {
+  opacity: 0.5;
+  cursor: none;
+  color: #212e3b;
+  background-color: transparent;
+}
+.cardHeader {
+  display: inline-block;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 2px #ccc;
+  width: 90%;
+  padding: 10px 15px;
+  margin: 10px;
+}
+.paginationDataBar {
+  color: #33333398;
+}
+
+.datalists {
+  /* font-weight: 500 !important;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: #3d2828bd; */
+  /* font-family: "Nunito", sans-serif !important; */
+  font-size: 15px !important;
+  white-space: nowrap !important;
+}
+.trackProperties {
+  font-size: 15px !important;
+  white-space: nowrap !important;
+  font-weight: bolder !important;
+  font-family: sans-serif;
+}
+
+/* todayLogs */
+.tableData tr td th {
+  border: 1px solid black !important;
+}
+.tableData td {
+  border: none !important;
+}
+.todayLogsSection article {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.todayLogsSection article > span {
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.todayLogsSection article > span:first-child {
+  background-color: rgb(41, 182, 246);
+  flex-basis: 32%;
+}
+.todayLogsSection article > span:nth-child(2) {
+  background-color: rgb(0, 200, 81);
+  color: white;
+  flex-basis: 32%;
+}
+.todayLogsSection article > span:nth-child(3) {
+  background-color: rgb(255, 82, 82);
+  color: white;
+
+  flex-basis: 32%;
+}
+.todayLogsSection {
+  margin: 10px auto;
+}
+.input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.cardContainerBody > li:hover {
+  background-color: blue;
+}
+.tableHead1 td {
+  border: none !important;
+  padding: 0.3rem;
+}
+.tableHead1 {
+  width: 180px !important;
+}
+.tableHead1 th {
+  font-weight: 400 !important;
+}
+.tableHead1 > tbody > tr:hover {
+  background-color: none !important;
+}

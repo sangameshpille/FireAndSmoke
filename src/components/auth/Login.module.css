@@ -1,0 +1,187 @@
+#LoginMain {
+    background-color: rgb(255, 82, 82);
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #LoginMain > article {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+  }
+  @media screen and (max-width: 600px) {
+    #LoginMain > article{
+      display: grid !important;
+    }
+  }
+  
+  .LogoMain {
+    flex-basis: 50%;
+    padding: 35px;
+    position: relative; /* Add this line */
+    z-index: 1; /* Add this line */
+  }
+  
+  .LoginPage {
+    margin: 0 auto;
+    flex-basis: 40%;
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border: 0;
+    font-weight: 400;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+    
+  }
+  
+  .LogoMain > img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .LoginPage > section > article > form {
+    width: 80%;
+    height: 50vh;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  
+  .LoginPage > section > article > form > div {
+    margin: 5% 0px;
+  }
+  
+  .LoginIcon {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #9e9e9e !important;
+    position: relative; 
+    z-index: 2; 
+    text-align: center;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    color: #fff;
+    text-align: center;
+    margin-top: -1.2rem;
+    padding: 1rem;
+    border-radius: 0.125rem;
+  }
+  .LoginIcon h3{
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    margin-top: 0;
+    color: #fff;
+    
+  }
+  .LoginIcon>h3>span:first-child{
+    margin-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+  .mdform{
+
+    width: 130%;
+    display: flex;
+align-items: center;
+justify-content: center;
+  }
+  .mdform>div{
+    transition: color 0.2s;
+    top: 0.25rem;
+    font-size: 1.75rem;
+    color: #9e9e9e !important;
+    margin: 0px 10px 0px 0px;
+  }
+.mdform>input{
+    /* margin-left: 2.5rem; */
+    width: calc(100% + 2.5rem);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    background-color: transparent;
+    margin: 0 0 0.5rem 0;
+    padding: 0.3rem 0 0.55rem 0;
+    background-image: none;
+    height: auto;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+}
+
+  .LoginIcon>span {
+    display: inline-block;
+    padding: 5px;
+  }
+ .LoginButton{
+    background-color: rgb(244,67,54);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 1rem 2.4rem;
+    font-size: 0.94rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0.375rem;
+    border: 0;
+    border-radius: 0.125rem;
+    text-transform: uppercase;
+    white-space: normal;
+    word-wrap: break-word; 
+    position: relative;
+    overflow: hidden;
+    color: #fff !important;   
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.5;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+   border-radius: 5px;
+   
+}
+ .buttonLog{
+    text-align: center !important;
+ }
+ /* .LoginPage > section > article > form > div>label{
+    display: inline;
+    width: 50%;
+    margin: 10px;
+    
+ } */
+ /* .LoginPage > section > article > form > div>input{
+   outline: none;
+   border: none;
+   border-bottom: 1px solid gray;
+   padding: 2px 15px;
+     } */
+
+     .LoginButton:hover{
+      background-color: #9d0208;
+      color: white !important;
+     }

@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.css-5qps9h-JoyCard-root {
+  width: 290px !important ;
+}
+body {
+  background-color: rgb(245, 245, 245);
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 0px;
+  height: 100%;
+  padding: 0;
+}
+html {
+  height: 100%;
+  min-height: 100vh;
+}
+.css-1arnfbu-JoySheet-root {
+  height: 94%;
+}
+.css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator {
+  display: none !important;
+}
+.css-8uige2-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall {
+  background: #fff !important;
+}
+
+.css-rorn0c-MuiTableContainer-root {
+  width: 100%;
+  overflow-x: visible !important;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: #1976d2 !important;
+  display: none !important;
+  border: none !important;
+}
+.css-10jndm7-JoyAspectRatio-content {
+  z-index: 2 !important;
+  top: -50px !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+}
+.css-1ujpmw0-JoyCard-root,
+.css-cr3ao2-JoyCard-root {
+  border-radius: none !important;
+}
+.css-keoet0-JoyModalClose-root {
+  top: calc(-1 / 40 * var(--IconButton-size)) !important;
+  right: calc(-1 / 200 * var(--IconButton-size)) !important;
+}
+.css-cr3ao2-JoyCard-root {
+  border-radius: 6px !important;
+}
+.css-bbjpph-JoyAspectRatio-root {
+  border-radius: 8px !important;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  display: none !important;
+}
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: 1px solid #eee !important;
+}
+.MuiOutlinedInput-root {
+  border-radius: 0 !important;
+}
+.MuiAutocomplete-root fieldset:hover {
+  border-color: #eee !important;
+}
+.autocomplete-input {
+  outline: none !important; /* Remove the blue outline */
+  border: none !important; /* Remove the border */
+}
+
+.MuiInputBase-root {
+  border: none !important; /* Remove the border */
+  outline: none !important; /* Remove the outline */
+}
+
+.css-115zp5j {
+  z-index: 2 !important;
+  top: -50px !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.16) !important;
+}
+.css-1i11gpy-JoySheet-root {
+  outline: none !important;
+}
+.react-datepicker__input-container > .form-control {
+  width: 500px !important;
+}
+.datepickerchange > .react-datepicker__input-container > .form-control {
+  width: 200px !important;
+}
+.react-datepicker-ignore-onclickoutside {
+  box-shadow: rgb(40, 181, 250) 0px 0px 2px 2px !important;
+}
+.react-datepicker-popper {
+  z-index: 201 !important;
+}
+.css-m9ebmz-JoyCard-root {
+  height: auto;
+}
+#myBtn1 {
+  display: none;
+  position: fixed;
+  bottom: 47px;
+  right: 0px;
+  z-index: 999;
+  border: none;
+  outline: none;
+  background-color: rgb(255, 89, 94);
+  color: #f7f7f7;
+  cursor: pointer;
+  padding: 9px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+#myBtn1:hover {
+  background-color: #555;
+}
