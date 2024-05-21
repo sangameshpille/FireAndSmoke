@@ -473,6 +473,7 @@ const VehicleLog = () => {
                               margin: "10px 5px 50px 5px",
                               boxShadow:
                                 "0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.16)",
+                                
                             }}
                           >
                             <span
@@ -481,7 +482,7 @@ const VehicleLog = () => {
                                 flexDirection: "column",
                                 listStyleType: "none",
                                 padding: "0",
-                                cursor:"pointer"
+                                cursor: "pointer"
                               }}
                             >
                               <CardOverflow onClick={() => handleOpen(list.id)}>
@@ -500,12 +501,13 @@ const VehicleLog = () => {
                                   marginTop: "-42px",
                                 }}
                               >
+                                              <div style={{ overflowX: "auto" }}>
                                 <table className={Styles.tableHead1}>
                                   <tbody>
                                     {list.camera_name ? (
                                       <tr>
                                         <th className={Styles.trackProperties}>
-                                          Camera name
+                                          Camera Name&nbsp;
                                         </th>
                                         :
                                         <td
@@ -516,23 +518,56 @@ const VehicleLog = () => {
                                         </td>
                                       </tr>
                                     ) : null}
-                                    {list?.camera_id ? (
+
+                                   
+                                    {list?.from_timestamp ? (
                                       <tr>
                                         <th className={Styles.trackProperties}>
-                                          Camera id
+                                          From Date
                                         </th>
                                         :
                                         <td
                                           className={Styles.datalists}
                                           style={{ textAlign: "start" }}
                                         >
-                                          {list.camera_id}
+                                          {new Date(list.from_timestamp).toLocaleString("en-US", {
+                                            month: "short",
+                                            day: "numeric",
+                                            year: "numeric",
+                                            hour: "numeric",
+                                            minute: "numeric",
+                                            second: "numeric",
+                                            hour12: true
+                                          })}
                                         </td>
                                       </tr>
                                     ) : null}
 
+                                    {list?.to_timestamp ? (
+                                      <tr>
+                                        <th className={Styles.trackProperties}>
+                                          To Date
+                                        </th>
+                                        :
+                                        <td
+                                          className={Styles.datalists}
+                                          style={{ textAlign: "start" }}
+                                        >
+                                          {new Date(list.to_timestamp).toLocaleString("en-US", {
+                                            month: "short",
+                                            day: "numeric",
+                                            year: "numeric",
+                                            hour: "numeric",
+                                            minute: "numeric",
+                                            second: "numeric",
+                                            hour12: true
+                                          })}
+                                        </td>
+                                      </tr>
+                                    ) : null}
                                   </tbody>
                                 </table>
+                                </div>
                               </div>
                             </span>
                             <div
@@ -547,7 +582,7 @@ const VehicleLog = () => {
                                 justifyContent: "center",
                               }}
                             >
-                              {list.timestamp ? (
+                              {list.from_timestamp ? (
                                 <>
                                   <Typography level="h6" sx={{ mt: 0.1, mb: 0.1 }}>
                                     <span
@@ -559,13 +594,13 @@ const VehicleLog = () => {
                                         style={{
                                           display: "inline-block",
                                           padding: "0px 0px",
-                                          verticalAlign: "middle",
+                                          verticalAlign: "inherit",
                                         }}
                                       >
-                                        <BiCalendar />
+                                        Duration &nbsp; :
                                       </span>{" "}
-                                      {new Date(
-                                        list.timestamp
+                                      {/* {new Date(
+                                        list.from_timestamp
                                       ).toLocaleString("en-US", {
                                         month: "short", // Short month name (e.g., Jan)
                                         day: "numeric", // Day of the month (e.g., 1)
@@ -574,7 +609,8 @@ const VehicleLog = () => {
                                         minute: "numeric", // Minute (e.g., 0)
                                         second: "numeric", // Second (e.g., 0)
                                         hour12: true,
-                                      })}
+                                      })} */}
+                                      {list?.duration}
                                     </span>
                                   </Typography>
                                 </>
@@ -584,75 +620,75 @@ const VehicleLog = () => {
                             </div>
                           </Card>
                           <Modal
-                    aria-labelledby="modal-title"
-                    aria-describedby="modal-desc"
-                    open={open === list.id}
-                    onClose={handleClose}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Sheet
-                      variant="outlined"
-                      sx={{
-                        width: "auto",
-                        borderRadius: "md",
-                        p: 5,
-                        boxShadow: "lg",
-                        display: "flex",
-                        flexDirection: "column",
-                        overflowY: "auto",
-                        overflowX: "hidden",
-                        height: "auto",
-                      }}
-                    >
-                      <ModalClose
-                        variant="outlined"
-                        sx={{
-                          boxShadow: "0 2px 12px 0 rgba(0 0 0 / 0.2)",
-                          borderRadius: "50%",
-                          bgcolor: "background.body",
-                        }}
-                      />
-                    
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-around",
-                          alignItems: "center",
-                        }}
-                      >
-                        <div>
-                          <CardOverflow
-                          
+                            aria-labelledby="modal-title"
+                            aria-describedby="modal-desc"
+                            open={open === list.id}
+                            onClose={handleClose}
+                            sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
                           >
-                            <div
-                              style={{
-                                width: "100%",
-                                height: "300px",
-                                overflow: "hidden",
+                            <Sheet
+                              variant="outlined"
+                              sx={{
+                                width: "auto",
+                                borderRadius: "md",
+                                p: 5,
+                                boxShadow: "lg",
+                                display: "flex",
+                                flexDirection: "column",
+                                overflowY: "auto",
+                                overflowX: "hidden",
+                                height: "auto",
                               }}
                             >
-                              <img
-                                src={`${AxiosInstance.defaults.baseURL}/img/${list?.image}`}
-                                loading="lazy"
-                                alt=""
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  objectFit: "cover",
+                              <ModalClose
+                                variant="outlined"
+                                sx={{
+                                  boxShadow: "0 2px 12px 0 rgba(0 0 0 / 0.2)",
+                                  borderRadius: "50%",
+                                  bgcolor: "background.body",
                                 }}
                               />
-                            </div>
-                          </CardOverflow>
-                        </div>
-                       
-                      </div>
-                    
-                    </Sheet>
-                  </Modal>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "space-around",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div>
+                                  <CardOverflow
+
+                                  >
+                                    <div
+                                      style={{
+                                        width: "100%",
+                                        height: "300px",
+                                        overflow: "hidden",
+                                      }}
+                                    >
+                                      <img
+                                        src={`${AxiosInstance.defaults.baseURL}/img/${list?.image}`}
+                                        loading="lazy"
+                                        alt=""
+                                        style={{
+                                          width: "100%",
+                                          height: "100%",
+                                          objectFit: "cover",
+                                        }}
+                                      />
+                                    </div>
+                                  </CardOverflow>
+                                </div>
+
+                              </div>
+
+                            </Sheet>
+                          </Modal>
                         </React.Fragment>
                       );
                     })}

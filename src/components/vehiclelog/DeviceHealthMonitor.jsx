@@ -51,6 +51,18 @@ const DeviceHealthMonitor = () => {
     const [lanes, setLanes] = useState([]);
     const [laneId1, setLaneId1] = useState(0);
     const [searchData, setSearchData] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); 
+        };
+    
+        handleResize();
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     useEffect(() => {
         let fetchData = async () => {
@@ -81,7 +93,7 @@ const DeviceHealthMonitor = () => {
         let fetchSearchData = async () => {
             try {
                 let data = await AxiosInstance.get(
-                    `/get_device_health_monitor?track_id=${laneId1}`
+                    `/get_device_health_monitor?camera_ids=${laneId1}`
                 );
                 setSearchData(data?.data.data);
             } catch (error) {
@@ -169,31 +181,31 @@ const DeviceHealthMonitor = () => {
                         </div>
                     </section>
                     <div className={Styles.container} style={{ minHeight: " calc(100vh - (88px + 283px))" }}>
-                        <aside className={Styles.cardSection} style={{ padding: "30px", width: searchData.length > 0 ? "fit-content" : "auto" }}>
+                        <aside className={Styles.cardSection} style={{ padding: "30px", width: (searchData?.length && isMobile) > 0 ? "fit-content" : "auto" }}>
                             {/* table data started */}
-                            {searchData.length > 0 ? (
+                            {searchData?.length > 0 ? (
                                 <div style={{ margin: 0 }}>
                                     <table>
                                         <thead>
                                             <tr className="tableHead">
-                                                <th>Lane Id</th>
-                                                <th>Lane name</th>
+                                                <th>Camera Id</th>
+                                                <th>Camera name</th>
+                                                <th>Camera status</th>
+                                                <th>Camera ping last timestamp</th>
                                                 <th>Device status</th>
                                                 <th>Device ping last timestamp</th>
-                                                <th>Side view camera status</th>
-                                                <th>Side view camera status last timestamp</th>
-                                                <th>Top view camera status</th>
-                                                <th>Top view camera status last timestamp</th>
+                                                {/* <th>Top view camera status</th>
+                                                <th>Top view camera status last timestamp</th> */}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {searchData.map((list) => {
                                                 return (
-                                                    <React.Fragment key={list.lane_id}>
-                                                        <tr key={list.lane_id} className="tableHead">
-                                                            <td>{list.lane_id}</td>
-                                                            <td>{list.lane_name}</td>
-                                                            <td>{list.device_status ? (
+                                                    <React.Fragment key={list.camera_id}>
+                                                        <tr key={list.camera_id} className="tableHead">
+                                                            <td>{list.camera_id}</td>
+                                                            <td>{list.camera_name}</td>
+                                                            <td>{list.camera_status ? (
                                                                     <Badge badgeContent="Online" color="success" >
                                                                     </Badge>
                                                                 ) : (
@@ -201,9 +213,9 @@ const DeviceHealthMonitor = () => {
                                                                     </Badge>
                                                                 )}</td>
                                                             <td>
-                                                                {list.device_ping_last_timestamp ? (
+                                                                {list.camera_status_last_timestamp ? (
                                                                     <>
-                                                                        {new Date(list.device_ping_last_timestamp).toLocaleString("en-US", {
+                                                                        {new Date(list.camera_status_last_timestamp).toLocaleString("en-US", {
                                                                              month: "short",
                                                                              day: "numeric",
                                                                              year: "numeric",
@@ -218,7 +230,7 @@ const DeviceHealthMonitor = () => {
                                                                 )}
                                                             </td>
                                                             <td>
-                                                                {list.side_view_camera_status ? (
+                                                                {list.device_status ? (
                                                                     <Badge badgeContent="Online" color="success" >
                                                                     </Badge>
                                                                 ) : (
@@ -227,9 +239,9 @@ const DeviceHealthMonitor = () => {
                                                                 )}
                                                             </td>
                                                             <td>
-                                                                {list.side_view_camera_status_last_timestamp ? (
+                                                                {list.device_ping_last_timestamp ? (
                                                                     <>
-                                                                        {new Date(list.side_view_camera_status_last_timestamp).toLocaleString("en-US", {
+                                                                        {new Date(list.device_ping_last_timestamp).toLocaleString("en-US", {
                                                                             month: "short",
                                                                             day: "numeric",
                                                                             year: "numeric",
@@ -237,30 +249,6 @@ const DeviceHealthMonitor = () => {
                                                                             minute: "numeric",
                                                                             second: "numeric",
                                                                             hour12: true,
-                                                                        })}
-                                                                    </>
-                                                                ) : (
-                                                                    ""
-                                                                )}
-                                                            </td>
-                                                            <td>{list.top_view_camera_status ? (
-                                                                    <Badge badgeContent="Online" color="success" >
-                                                                    </Badge>
-                                                                ) : (
-                                                                    <Badge badgeContent="Offline" color="error" >
-                                                                    </Badge>
-                                                                )}</td>
-                                                            <td>
-                                                                {list.top_view_camera_status_last_timestamp ? (
-                                                                    <>
-                                                                        {new Date(list.top_view_camera_status_last_timestamp).toLocaleString("en-US", {
-                                                                           month: "short",
-                                                                           day: "numeric",
-                                                                           year: "numeric",
-                                                                           hour: "numeric",
-                                                                           minute: "numeric",
-                                                                           second: "numeric",
-                                                                           hour12: true,
                                                                         })}
                                                                     </>
                                                                 ) : (

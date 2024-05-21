@@ -4,15 +4,18 @@ import Logo from "./../../assets/gt_logo.png";
 import { FaRegEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import LoadingButton from '@mui/lab/LoadingButton';
 import { TiTickOutline } from "react-icons/ti"
 import AxiosInstance from '../api/AxiosInstance';
 const Login = () => {
     let navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (username !== "" && password !== "") {
+            setLoading(true);
             try {
                 const response = await AxiosInstance.post('/loginCheck', {
                     username,
@@ -30,7 +33,7 @@ const Login = () => {
                         icon: <span style={{ color: 'white', fontSize: "25px" }}><TiTickOutline /></span>,
                     });
                     if (localStorage.getItem('token')) {
-                        navigate("/fireandsmokedetectionlogs");
+                        navigate("/dashboard");
                     } else {
                         toast.error("Login failed. Please try again.", {
                             autoClose: 1000,
@@ -45,6 +48,8 @@ const Login = () => {
                 toast.error("An error occurred. Please try again.", {
                     autoClose: 1000,
                 });
+            } finally {
+                setLoading(false);
             }
         } else {
             toast.warn("Enter username and password..", {
@@ -86,7 +91,16 @@ const Login = () => {
                                     <input type="password" name='password' onChange={e => setPassword(e.target.value)} />
                                 </div>
                                 <div className={Styles.buttonLog}>
-                                    <button className={Styles.LoginButton}>LOGIN</button>
+                                    {/* <button className={Styles.LoginButton}>LOGIN</button> */}
+                                    <LoadingButton
+                                        className={Styles.LoginButton}
+                                        type="submit"
+                                        loading={loading}
+                                        loadingPosition="start"
+                                        variant="outlined"
+                                    >
+                                     {loading ? "Loading.." :"LOGIN"}   
+                                    </LoadingButton>
                                 </div>
                             </form>
                         </article>

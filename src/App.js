@@ -14,7 +14,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/fireandsmokedetectionlogs" element={<ProtectedRoute element={<VehicleLog />} />} />
+        <Route path="/dashboard" element={<ProtectedRoute element={<VehicleLog />} />} />
         <Route path="/device_health_monitor" element={<ProtectedRoute element={<DeviceHealthMonitor />} />} />
       </Routes>
     </Router>

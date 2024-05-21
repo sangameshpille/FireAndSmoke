@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
     // Find the active item based on the current pathname and URL name
     const items = [
-      { pathname: "/fireandsmokedetectionlogs", name: "Fire And Smoke Detection Log" },
+      { pathname: "/dashboard", name: "Fire And Smoke Detection Log" },
       { pathname: "/device_health_monitor", name: "Device health monitor" }
 
       // Add more items as needed
@@ -40,7 +40,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       </div>
       <ul>
         <li className={activeItem === "Fire And Smoke Detection Log" ? "active" : ""}>
-          <Link to="/fireandsmokedetectionlogs">
+          <Link to="/dashboard">
             <MdDirectionsCar className="icon" />
             Fire And Smoke Detection Log
           </Link>
